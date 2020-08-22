@@ -93,12 +93,15 @@ let library = {
     // containing a randomly generated id, a name, an artist, and an album 
     // console.log to confirm that the song has been added.
 
-    library.songs.s04 = {
+    let newSongID = library.generateUid();
+    
+    library.songs[newSongID] = {
       id: library.generateUid(),
-      name: "AH",
-      artist: "Oh",
-      album:"haha"
+      name: name,
+      artist: artist,
+      album: album
     };
+    console.log(library.songs[newSongID]);
   },
 
 //   library.songs.s04 = {
@@ -129,7 +132,7 @@ let library = {
     // }); 
 
     library.playlists[playlistID].tracks.push(songID);
-
+    console.log(library.playlists[playlistID].tracks);
   },
 
   addPlaylist: function(name, arrOfSongs) {
@@ -137,12 +140,22 @@ let library = {
     // containing a randomly generated id, a name, and an array of songs to be added to the playlist 
     // console.log to confirm that the playlist has been added.
 
-    library.playlists.p03 = {
+    let newPlaylistID = library.generateUid();
+
+    library.playlists[newPlaylistID] = {
       id: library.generateUid(),
       name: name,
       tracks: arrOfSongs
     };
+    console.log(library.playlists[newPlaylistID]);
   },
+
+//   library.playlists.p03 = {
+//     id: library.generateUid(),
+//     name: name,
+//     tracks: arrOfSongs
+//   };
+// },
 
 
 
@@ -172,16 +185,11 @@ let library = {
 
 
 // library.addSongToPlaylist("s02", "p01");
-// library.printPlaylistSongs("p01");
 // console.log(library.playlists.p01);
 
 // library.addPlaylist("fufufu", ["s01","s03","s04"])
-// console.log(library.playlists);
-// console.log(library.playlists.p03.id);
-// console.log(library.playlists.p03.name);
-// console.log(library.playlists.p03.tracks);
 
 
-
-
+// library.addSong("ah", "ha", "hu");
+// console.log(library.songs);
 
