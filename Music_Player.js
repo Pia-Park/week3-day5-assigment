@@ -41,7 +41,7 @@ let library = {
   },
 
 
-  
+
   printSongName: function(songID) {
     // print the name of a song when given its ID
     Object.keys(library.songs).forEach(function(elm){
@@ -106,7 +106,7 @@ let library = {
     let newSongID = library.generateUid();
     
     library.songs[newSongID] = {
-      id: library.generateUid(),
+      id: newSongID,
       name: name,
       artist: artist,
       album: album
@@ -157,7 +157,7 @@ let library = {
     let newPlaylistID = library.generateUid();
 
     library.playlists[newPlaylistID] = {
-      id: library.generateUid(),
+      id: newPlaylistID,
       name: name,
       tracks: arrOfSongs
     };
