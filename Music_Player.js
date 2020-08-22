@@ -42,7 +42,10 @@ let library = {
 
   printSongName: function(songID) {
     // print the name of a song when given its ID
-    console.log(library.songs[songID].name);
+    Object.keys(library.songs).forEach(function(elm){
+      if(songID === library.songs[elm].id)
+      console.log(library.songs[elm].name);
+    });
   },
 
   printPlaylistName: function(playlistID) {
@@ -50,7 +53,7 @@ let library = {
     for(let i = 1; i <= playlistID.length; i++){
       console.log(library.playlists[playlistID].name);
       break;
-    } 
+    }; 
   },
 
   printAllPlaylistNames: function() {
@@ -63,19 +66,33 @@ let library = {
 
   printPlaylistSongs: function(playlistID) {
     // Print the names of all the songs in whatever playlist id was given 
+    
     // Object.keys(library.playlists).forEach(function(playlistID){
     //   console.log(library.playlists[playlistID].tracks);
     // });   
-    Object.keys(library.playlists).forEach(function(elem){
-      console.log(library.playlists[playlistID].tracks);
+    
+    Object.keys(library.playlists).forEach(function(elem){  
+      if(playlistID === library.playlists[elem].id){
+        // console.log(library.playlists[elem].tracks);
+        const songList = library.playlists[elem].tracks;
+        songList.forEach(function(elem2){
+          Object.keys(library.songs).forEach(function(elem){
+            if(elem2 === library.songs[elem].id){
+              console.log(library.songs[elem].name);
+            }
+          });
+        });
+      }    
     });   
     
   },
+  
 
   addSong: function(name, artist, album) {
     // add a new song to the songs object. The song should be its own object, 
     // containing a randomly generated id, a name, an artist, and an album 
     // console.log to confirm that the song has been added.
+
     library.songs.s04 = {
       id: library.generateUid(),
       name: "AH",
@@ -83,6 +100,14 @@ let library = {
       album:"haha"
     };
   },
+
+//   library.songs.s04 = {
+//     id: library.generateUid(),
+//     name: "AH",
+//     artist: "Oh",
+//     album:"haha"
+//   };
+// },
 
   addSongToPlaylist: function(songID, playlistID) {
     // given a songID, add that song to the playlist for the given playlistID
@@ -114,8 +139,8 @@ let library = {
 
     library.playlists.p03 = {
       id: library.generateUid(),
-      name: (name),
-      tracks: (arrOfSongs)
+      name: name,
+      tracks: arrOfSongs
     };
   },
 
@@ -150,11 +175,11 @@ let library = {
 // library.printPlaylistSongs("p01");
 // console.log(library.playlists.p01);
 
-library.addPlaylist("fufufu", ["s01","s03","s04"])
-console.log(library.playlists);
-console.log(library.playlists.p03.id);
-console.log(library.playlists.p03.name);
-console.log(library.playlists.p03.tracks);
+// library.addPlaylist("fufufu", ["s01","s03","s04"])
+// console.log(library.playlists);
+// console.log(library.playlists.p03.id);
+// console.log(library.playlists.p03.name);
+// console.log(library.playlists.p03.tracks);
 
 
 
