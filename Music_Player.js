@@ -40,6 +40,8 @@ let library = {
     });
   },
 
+
+  
   printSongName: function(songID) {
     // print the name of a song when given its ID
     Object.keys(library.songs).forEach(function(elm){
@@ -47,6 +49,8 @@ let library = {
       console.log(library.songs[elm].name);
     });
   },
+
+
 
   printPlaylistName: function(playlistID) {
     // Print the name of a playlist when given its ID
@@ -56,12 +60,16 @@ let library = {
     }; 
   },
 
+
+
   printAllPlaylistNames: function() {
     // Print the nmaes of all the playlists
     Object.keys(library.playlists).forEach(function(elm){
       console.log(library.playlists[elm].name);
     });  
   },
+
+
 
 
   printPlaylistSongs: function(playlistID) {
@@ -88,6 +96,8 @@ let library = {
   },
   
 
+
+
   addSong: function(name, artist, album) {
     // add a new song to the songs object. The song should be its own object, 
     // containing a randomly generated id, a name, an artist, and an album 
@@ -112,6 +122,8 @@ let library = {
 //   };
 // },
 
+
+
   addSongToPlaylist: function(songID, playlistID) {
     // given a songID, add that song to the playlist for the given playlistID
     //console.log the playlist to make sure the song was added.
@@ -135,6 +147,8 @@ let library = {
     console.log(library.playlists[playlistID].tracks);
   },
 
+
+
   addPlaylist: function(name, arrOfSongs) {
     // add a new playlist to the playlist object. it will be
     // containing a randomly generated id, a name, and an array of songs to be added to the playlist 
@@ -156,10 +170,6 @@ let library = {
 //     tracks: arrOfSongs
 //   };
 // },
-
-
-
-
 
 }
 
